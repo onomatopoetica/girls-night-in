@@ -1,86 +1,74 @@
-import React, { useState } from "react";
-import Jumbotron from "./components/Jumbotron";
-import Nav from "./components/Nav";
-import Input from "./components/Input";
-import Button from "./components/Button";
-import API from "./utils/API";
-import { RecipeList, RecipeListItem } from "./components/RecipeList";
-import { Container, Row, Col } from "./components/Grid";
+import React, { useState } from 'react';
+import axios from 'axios';
+import Search from './components/Search';
+import Results from './components/Results';
+import Popup from './components/Popup';
+import GNI from './components/GNI.png';
+console.log(process.env.REACT_APP_OMDB_API_KEY);
 
 function App() {
+  const [state, setState] = useState({
+    searchInput: "",
+    results: [],
+    selected: {}
+  });
 
-  const [recipes, setRecipes] = useState([]);
-  const [recipeSearch, setRecipeSearch] = useState("");
+  const apiurl = 'http://www.omdbapi.com/?apikey=6d71121d';
 
-  const handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { value } = event.target;
-    setRecipeSearch(value);
-  };
+  const search = (e) => {
+    if (e.key === "Enter") {
+      axios(apiurl + "&s=" + state.searchInput).then(({ data }) => {
+        let results = data.Search;
 
-  const handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
-    API.getRecipes(recipeSearch)
-      .then(res => setRecipes(res.data))
-      .catch(err => console.log(err));
-  };
+        setState(prevState => {
+          return { ...prevState, results: results }
+        })
+      });
+    }
+  }
+
+  const handleInput = (e) => {
+    let searchInput = e.target.value;
+
+    setState(prevState => {
+      return { ...prevState, searchInput: searchInput }
+    });
+  }
+
+  const openPopup = id => {
+    axios(apiurl + "&i=" + id).then(({ data }) => {
+      let result = data;
+
+      console.log(result);
+
+      setState(prevState => {
+        return { ...prevState, selected: result }
+      });
+    });
+  }
+
+  const closePopup = () => {
+    setState(prevState => {
+      return { ...prevState, selected: {} }
+    });
+  }
 
   return (
-    <div>
-      <Nav />
-      <Jumbotron />
-      <Container>
-        <Row>
-          <Col size="md-12">
-            <form>
-              <Container>
-                <Row>
-                  <Col size="xs-9 sm-10">
-                    <Input
-                      name="RecipeSearch"
-                      value={recipeSearch}
-                      onChange={handleInputChange}
-                      placeholder="Search For a Recipe"
-                    />
-                  </Col>
-                  <Col size="xs-3 sm-2">
-                    <Button
-                      onClick={handleFormSubmit}
-                      type="success"
-                      className="input-lg"
-                    >
-                        Search
-                    </Button>
-                  </Col>
-                </Row>
-              </Container>
-            </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="xs-12">
-            {!recipes.length ? (
-              <h1 className="text-center">No Recipes to Display</h1>
-            ) : (
-              <RecipeList>
-                {recipes.map(recipe => {
-                  return (
-                    <RecipeListItem
-                      key={recipe.title}
-                      title={recipe.title}
-                      href={recipe.href}
-                      ingredients={recipe.ingredients}
-                      thumbnail={recipe.thumbnail}
-                    />
-                  );
-                })}
-              </RecipeList>
-            )}
-          </Col>
-        </Row>
-      </Container>
+    <div className="App">
+      <header>
+        <div className='hero'>
+          <img id='GNI' src={GNI} alt="Girl's Night In Neon" />
+        </div>
+        <h1>Search For A Movie!</h1>
+      </header>
+      <main>
+        <Search handleInput={handleInput} search={search} />
+
+        <Results results={state.results} openPopup={openPopup} />
+
+        {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
+
+      </main>
     </div>
   );
 }

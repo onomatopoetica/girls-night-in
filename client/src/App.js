@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './components/Search';
 import Results from './components/Results';
 import Popup from './components/Popup';
 import GNI from './components/GNI.png';
+
+
 console.log(process.env.REACT_APP_OMDB_API_KEY);
 
 function App() {
@@ -13,7 +15,7 @@ function App() {
     selected: {}
   });
 
-  const apiurl = 'http://www.omdbapi.com/?apikey=6d71121d';
+  const apiurl = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
   const search = (e) => {
     if (e.key === "Enter") {
@@ -25,6 +27,22 @@ function App() {
         })
       });
     }
+  }
+
+  const getMovies = () => {
+    axios("/api/movies").then(({ data }) => {
+      let results = data;
+      console.log(data);
+      let movies = data.forEach(({ Title }) => {
+        axios(apiurl + "&s=" + Title).then(({ data }) => {
+          let results = data.Search;
+
+          setState(prevState => {
+            return { ...prevState, results: [...prevState.results, results[0]] }
+          })
+        });
+      })
+    });
   }
 
   const handleInput = (e) => {
@@ -52,6 +70,8 @@ function App() {
       return { ...prevState, selected: {} }
     });
   }
+
+  useEffect(() => { getMovies() }, [])
 
   return (
     <div className="App">

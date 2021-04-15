@@ -1,39 +1,44 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const dotenv = require("dotenv")
+dotenv.config()
 
 // This file empties the Movies collection and inserts the movies below
 
 mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/reactGNImovies"
+    process.env.MONGODB_URI,
+    {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useCreateIndex: true
+    }
 );
 
 const moviesSeed = [
     {
         // result.title
-        title: "Mean Girls",
+        Title: "Mean Girls",
         // result.poster
-        poster: "",
+        Poster: "",
         // date: new Date(Date.now())
     },
     {
         // result.title
-        title: "Frankenstein",
+        Title: "Frankenstein",
         // result.poster
-        poster: "",
+        Poster: "",
         // date: new Date(Date.now())
     },
     {
         // result.title
-        title: "The Great Gatsby",
+        Title: "The Great Gatsby",
         // result.poster
-        poster: "",
+        Poster: "",
         // date: new Date(Date.now())
     },
 ];
 
-db.Movies
-    .remove({})
-    .then(() => db.Movies.collection.insertMany(moviesSeed))
+db.Movies.collection.insertMany(moviesSeed)
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);

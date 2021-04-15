@@ -6,7 +6,7 @@ router.get("/movies", (req, res) => {
     // using case insensitive match. https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
     db.Movies.find({
         // ******* ????? *******
-        title: { $regex: new RegExp(req.query.q, 'i') }
+        // title: { $regex: new RegExp(req.query.q, 'i') }
     })
         .then(movies => res.json(movies))
         .catch(err => res.status(422).end());

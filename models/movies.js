@@ -25,7 +25,7 @@ const Schema = mongoose.Schema;
 
 const moviesSchema = new Schema({
     title: { type: String },
-    description: { type: String },
+    // description: { type: String },
     poster: { type: String },
     // date: { type: Date, default: Date.now },
 });

@@ -13,11 +13,11 @@ export default class Qrcode extends React.Component {
     let apiurl = "http://www.omdbapi.com/?apikey=6d71121d";
 
     axios.get(apiurl + "&i=" + this.props.selected.imdbID).then(({ data }) => {
-      console.log(data);
+     //  console.log(data);
 
       let imdbID = this.props.selected.imdbID;
 
-      console.log(imdbID);
+     //  console.log(imdbID);
 
       let str = "http://www.imdb.com/title/" + imdbID + "/?ref_=fn_al_tt_1";
       QRCode.toCanvas(document.getElementById("canvas"), str, function (error) {
@@ -28,11 +28,11 @@ export default class Qrcode extends React.Component {
 
   render() {
     this.generateQR();
-    console.log(this.props.selected);
+//     console.log(this.props.selected);
     return (
       <div align="center">
         <canvas id="canvas" />
-        <button onClick={this.generateQr}>Share</button>
+        <button className="close" onClick={this.generateQr}>Share</button>
       </div>
     );
   }

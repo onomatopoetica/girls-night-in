@@ -23,7 +23,7 @@ function Home() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.searchInput).then(({ data }) => {
+      axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
         let results = data.Search;
 
         setState(prevState => {

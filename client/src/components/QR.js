@@ -9,15 +9,21 @@
 import QRCode from 'qrcode'
 import React from 'react'
 import axios from 'axios'
+import id from '../App.js'
 
 export default class Qrcode extends React.Component {
      
      generateQR() {
 
-          axios.get('http://www.omdbapi.com/?apikey=6d71121d').then(function (response) {
-               console.log(response);
+          console.log(id);
+           
+          let apiurl = 'http://www.omdbapi.com/?apikey=6d71121d';
+          axios.get(apiurl + '&i=' + id).then(({data}) => {
+               console.log(data);
 
-          let imdbID = response.imdbID;
+          let imdbID = data.imdbID;
+
+          console.log(imdbID);
 
           let str = 'http://www.imdb.com/title/' + imdbID +'/?ref_=fn_al_tt_1'
           QRCode.toCanvas(document.getElementById('canvas'), str, function(error) {

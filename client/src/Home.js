@@ -6,6 +6,7 @@ import Results from './components/Results';
 import Popup from './components/Popup';
 import GNI from './components/GNI.png';
 import app from "./base";
+import "./index.css";
 
 
 

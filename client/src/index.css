@@ -151,7 +151,7 @@ section {
 	padding: 15px;
 }
 
-.popup .content .close {
+.close {
 	display: inline-block;
 	padding: 10px 20px;
 	font-size: 18px;

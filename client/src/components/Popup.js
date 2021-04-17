@@ -11,7 +11,7 @@ function Popup({ selected, closePopup }) {
                     <img src={selected.Poster} alt='movie poster' />
                     <p>{selected.Plot}</p>
                 </div>
-                <Qrcode/>
+                <Qrcode selected={selected}/>
                 <button className="close" onClick={closePopup}>Close</button>
             </div>
         </section>

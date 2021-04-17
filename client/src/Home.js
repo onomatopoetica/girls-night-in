@@ -78,8 +78,7 @@ function Home() {
   return (
 
     <div className="App">
-      <h1>Home</h1>
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
+      <button className="close" onClick={() => app.auth().signOut()}>Sign out</button>
       <header>
         <div className='hero'>
           <img id='GNI' src={GNI} alt="Girl's Night In Neon" />

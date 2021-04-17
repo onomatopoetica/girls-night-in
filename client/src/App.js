@@ -6,7 +6,7 @@ import Popup from './components/Popup';
 import GNI from './components/GNI.png';
 
 
-console.log(process.env.REACT_APP_OMDB_API_KEY);
+console.log(process.env.REACT_APP_API_KEY);
 
 function App() {
   const [state, setState] = useState({

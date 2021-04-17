@@ -34,9 +34,8 @@ function Home() {
 
   const getMovies = () => {
     axios("/api/movies").then(({ data }) => {
-      let results = data;
       console.log(data);
-      let movies = data.forEach(({ Title }) => {
+      data.forEach(({ Title }) => {
         axios(apiurl + "&s=" + Title).then(({ data }) => {
           let results = data.Search;
 
@@ -73,7 +72,7 @@ function Home() {
       return { ...prevState, selected: {} }
     });
   }
-
+  // eslint-disable-next-line 
   useEffect(() => { getMovies() }, [])
 
   return (

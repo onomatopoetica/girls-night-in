@@ -186,8 +186,10 @@ section {
 	padding: 15px;
 }
 
-.close, .loginBtn {
-	display: block;
+.close {
+	width: 100px;
+	margin: 2px;
+	display: inline-block;
 	padding: 10px 20px;
 	font-size: 18px;
 	font-weight: 400;

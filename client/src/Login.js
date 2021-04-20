@@ -43,7 +43,7 @@ const Login = ({ history }) => {
         </label>
         <br></br>
         <div className="centerBtn">
-        <button type="submit" className="loginBtn">Let's Go Girl</button>
+        <button type="submit" className="close">Let's Go Girl</button>
           </div>
       </form>
 

@@ -12,9 +12,9 @@ function Popup({ selected, closePopup, favorite, generateQR }) {
                     <p>{selected.Plot}</p>
                 </div>
                 
-                <button className="close" onClick={closePopup}>Close</button>
+                <button className="popupBtn" onClick={closePopup}>Close</button>
                 <p></p>
-                <button className="close" onClick={favorite}>Favorite</button>
+                <button className="popupBtn" onClick={favorite}>Favorite</button>
                 <p></p>
                 {/* <button className="close" onClick={generateQR}>Share</button>
                 <p></p> */}

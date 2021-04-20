@@ -48,7 +48,7 @@ section {
   	left: 50%;
   	-ms-transform: translate(-50%, -50%);
   	transform: translate(-50%, -50%);
-	display: flex;
+	display: block;
   	justify-content: center;
   	align-items: center;
 	
@@ -187,7 +187,6 @@ section {
 }
 
 .close {
-	width: 100px;
 	margin: 2px;
 	display: inline-block;
 	padding: 10px 20px;
@@ -202,6 +201,40 @@ section {
 	cursor: pointer;
 	transition: 0.4s ease-out;
 	margin-top: 20px;
+}
+
+.popupBtn {
+	width: 100px;
+	margin: 2px;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 400;
+	background: palevioletred;
+	color: #FFF;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: 0.4s ease-out;
+}
+
+.loginBtn {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 400;
+	background: white;
+	color: grey;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: 0.4s ease-out;
+	margin-top: 20px;
+	margin-left: 15px;
 }
 
 .loginBtn:focus {

@@ -36,7 +36,7 @@ const SignUp = ({ history }) => {
         </label>
         <br></br>
         <div className="centerBtn">
-        <button type="submit" className="loginBtn">Sign Up</button>
+        <button type="submit" className="close">Sign Up</button>
         </div>
         </form>
       </div>

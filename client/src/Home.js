@@ -76,6 +76,10 @@ function Home() {
   // eslint-disable-next-line 
   useEffect(() => { getMovies() }, [])
 
+  const favorite = () => {
+    console.log("here's your favorite function! it's not built yet but we'll get there")
+  }
+
   return (
 
     <div className="App">
@@ -91,7 +95,7 @@ function Home() {
 
         <Results results={state.results} openPopup={openPopup} />
 
-        {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected} closePopup={closePopup} /> : false}
+        {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected} closePopup={closePopup} favorite={favorite} /> : false}
 
       </main>
     </div>

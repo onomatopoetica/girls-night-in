@@ -36,6 +36,41 @@ section {
 	text-align: center;
 }
 
+.loginPage {
+	background: black;
+	border-radius: 6px;
+	height: 257px;
+	margin: 20px auto 0;
+	width: 298px;
+	margin: 0;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	
+}
+
+.signUpPage {
+	background: black;
+	border-radius: 6px;
+	height: 257px;
+	margin: 20px auto 0;
+	width: 298px;
+	margin: 0;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	-ms-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
 #GNI {
 	max-width: 100%;
 	background-image: 
@@ -151,8 +186,8 @@ section {
 	padding: 15px;
 }
 
-.close {
-	display: inline-block;
+.close, .loginBtn {
+	display: block;
 	padding: 10px 20px;
 	font-size: 18px;
 	font-weight: 400;
@@ -164,6 +199,17 @@ section {
 	appearance: none;
 	cursor: pointer;
 	transition: 0.4s ease-out;
+	margin-top: 20px;
+}
+
+.loginBtn:focus {
+	box-shadow: 0px 0px 10px 8px rgb(238, 183, 225);
+}
+
+.centerBtn {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 }
 
 .popup .content .close:hover {

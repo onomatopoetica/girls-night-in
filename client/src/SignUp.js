@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
 import SignPhoto from './components/Signpho.JPG';
-
+import "./index.css";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {

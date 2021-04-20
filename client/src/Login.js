@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
 import Loginto from './components/Loginpho.JPG';
+import "./index.css";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(

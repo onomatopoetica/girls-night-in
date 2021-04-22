@@ -1,7 +1,7 @@
 import React from 'react'
 import Qrcode from './QR'
 
-function Popup({ selected, closePopup }) {
+function Popup({ selected, closePopup, favorite, generateQR }) {
     return (
         <section className="popup">
             <div className="content">
@@ -11,8 +11,14 @@ function Popup({ selected, closePopup }) {
                     <img src={selected.Poster} alt='movie poster' />
                     <p>{selected.Plot}</p>
                 </div>
+                
+                <button className="popupBtn" onClick={closePopup}>Close</button>
+                <p></p>
+                <button className="popupBtn" onClick={favorite}>Favorite</button>
+                <p></p>
+                {/* <button className="close" onClick={generateQR}>Share</button>
+                <p></p> */}
                 <Qrcode selected={selected}/>
-                <button className="close" onClick={closePopup}>Close</button>
             </div>
         </section>
     )

@@ -1,6 +1,8 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
+import SignPhoto from './components/Signpho.JPG';
+import "./index.css";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -18,18 +20,26 @@ const SignUp = ({ history }) => {
 
   return (
     <div>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
+      <div className='hero'>  
+        <img id='SignPhoto' src={SignPhoto} alt="SignPhoto" />
+      </div>
+      
+      <div className="signUpPage">
+       <form onSubmit={handleSignUp}>
         <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
+          
+          <input name="email" className="loginBtn" type="email" placeholder="Email" />
         </label>
         <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
+          
+          <input name="password" className="loginBtn" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Sign Up</button>
-      </form>
+        <br></br>
+        <div className="centerBtn">
+        <button type="submit" className="close">Sign Up</button>
+        </div>
+        </form>
+      </div>
     </div>
   );
 };

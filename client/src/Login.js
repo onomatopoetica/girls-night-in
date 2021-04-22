@@ -2,6 +2,8 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
+import Loginto from './components/Loginpho.JPG';
+import "./index.css";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -28,18 +30,25 @@ const Login = ({ history }) => {
 
   return (
     <div>
-      <h1>Log in</h1>
-      <form onSubmit={handleLogin}>
+       <div className='hero'>
+          <img id='Loginto' src={Loginto} alt="Login" />
+        </div>
+        
+        <div className="loginPage">
+        <form onSubmit={handleLogin}>
         <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
+          <input name="email" className="loginBtn" type="email" placeholder="Email" />
         </label>
         <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
+          <input name="password" className="loginBtn" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Log in</button>
+        <br></br>
+        <div className="centerBtn">
+        <button type="submit" className="close">Let's Go Girl</button>
+          </div>
       </form>
+
+        </div>
     </div>
   );
 };

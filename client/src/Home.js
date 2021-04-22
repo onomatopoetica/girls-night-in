@@ -7,6 +7,7 @@ import Popup from './components/Popup';
 import GNI from './components/GNI.png';
 import app from "./base";
 import "./index.css";
+import Favorites from "./components/Favorites";
 
 
 
@@ -76,14 +77,21 @@ function Home() {
   // eslint-disable-next-line 
   useEffect(() => { getMovies() }, [])
 
+  //this function will save to the favorites page
   const favorite = () => {
-    console.log("here's your favorite function! it's not built yet but we'll get there")
+    console.log("here's your favorite function! it's not built yet but we'll get there");
+  }
+
+  //this function will take you to the favorites page (Favorites.js)
+  const favoritesPage = () => {
+    console.log('this will take you to the favorites page when it works');
   }
 
   return (
 
     <div className="App">
       <button className="close" onClick={() => app.auth().signOut()}>Sign out</button>
+      <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button>
       <header>
         <div className='hero'>
           <img id='GNI' src={GNI} alt="Girl's Night In Neon" />

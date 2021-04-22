@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
@@ -9,14 +10,20 @@ const SignUp = ({ history }) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await app
+      const result = await app
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
-      history.push("/");
+        createDBuser(result.user);
     } catch (error) {
       alert(error);
     }
-  }, [history]);
+  }, []);
+
+  const createDBuser = (user) => {
+    axios.post("/api/user", {name: user.displayName, firebaseID: user.uid}).then(()=>{
+      history.push("/");
+    })
+  };
 
   return (
     <div>

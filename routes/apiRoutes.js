@@ -49,15 +49,18 @@ router.get("/user/:id", (req,res) => {
 
 
 //4/24 post route for favorites attempt
-router.post("/user/:id", (req,res) => {
-  db.User.find({firebaseID:req.params.id})
-  .populate("movies")
-  .then(dbUser => {
-    res.json(dbUser);
-  })
-  .catch(err => {
-    res.json(err);
-  });
+router.post("/movies/:id", (req,res) => {
+  db.Movies.create({
+    title: req.body.title,
+    poster: req.body.poster
+})
+.then(({ _id }) => db.User.findOneAndUpdate({firebaseID:req.params.id}, { $push: { movies: _id } }, { new: true }))
+.then(dbUser => {
+  res.json(dbUser);
+})
+.catch(err => {
+  res.json(err);
+});
 })
 
 module.exports = router;

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Search from './components/Search';
 import Results from './components/Results';
@@ -8,6 +8,7 @@ import GNI from './components/GNI.png';
 import app from "./base";
 import "./index.css";
 import Favorites from "./components/Favorites";
+import {AuthContext} from './Auth.js'
 
 
 
@@ -19,6 +20,8 @@ function Home() {
     results: [],
     selected: {}
   });
+
+  const {currentUser} = useContext(AuthContext);
 
   const apiurl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
@@ -82,10 +85,14 @@ function Home() {
     console.log("vv this is what your favorite button needs to push to the API vv");
     console.log(state.selected);
     console.log('vv this is what its actually pushing I think vv');
-    axios.post('/api/user/:id', 
-      state.selected
+    console.log(currentUser.uid);
+    axios.post('/api/movies/' + currentUser.uid, 
+      {
+        title: state.selected.Title,
+        poster: state.selected.Poster
+      }
     ).then((response) => {
-      console.log(response.config.data);
+      console.log(response.data);
     })
   }
 

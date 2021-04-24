@@ -48,4 +48,18 @@ router.get("/user/:id", (req,res) => {
     });
 })
 
+router.post("/movies/:id", (req,res) => {
+  db.Movies.create({
+    title: req.body.title,
+    poster: req.body.poster
+})
+.then(({ _id }) => db.User.findOneAndUpdate({firebaseID:req.params.id}, { $push: { movies: _id } }, { new: true }))
+.then(dbUser => {
+  res.json(dbUser);
+})
+.catch(err => {
+  res.json(err);
+});
+})
+
 module.exports = router;

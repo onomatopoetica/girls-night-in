@@ -11,7 +11,7 @@ import axios from "axios";
 export default class Qrcode extends React.Component {
   generateQR() {
 
-    let apiurl = "http://www.omdbapi.com/?apikey=6d71121d";
+    let apiurl = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
     axios.get(apiurl + "&i=" + this.props.selected.imdbID).then(({ data }) => {
 

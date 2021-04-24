@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Search from './components/Search';
 import Results from './components/Results';
@@ -8,6 +8,7 @@ import GNI from './components/GNI.png';
 import app from "./base";
 import "./index.css";
 import Favorites from "./components/Favorites";
+import {AuthContext} from './Auth.js'
 
 
 
@@ -19,6 +20,8 @@ function Home() {
     results: [],
     selected: {}
   });
+
+  const {currentUser} = useContext(AuthContext);
 
   const apiurl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
@@ -79,19 +82,40 @@ function Home() {
 
   //this function will save to the favorites page
   const favorite = () => {
-    console.log("here's your favorite function! it's not built yet but we'll get there");
+    console.log("vv this is what your favorite button needs to push to the API vv");
+    console.log(state.selected);
+    console.log('vv this is what its actually pushing I think vv');
+    console.log(currentUser.uid);
+    axios.post('/api/movies/' + currentUser.uid, 
+      {
+        title: state.selected.Title,
+        poster: state.selected.Poster
+      }
+    ).then((response) => {
+      console.log(response.data);
+    })
   }
 
   //this function will take you to the favorites page (Favorites.js)
   const favoritesPage = () => {
-    console.log('this will take you to the favorites page when it works');
+    console.log('this button will take you to the favorites page when it works but for now its printing the favorites array right below here');
+    // axios.get("/api/user/:id").then(({ data }) => {
+    //   console.log(data);
+    // });
+    axios.get('/api/user/:id/?results=all', 
+      state.selected
+    )
+    .then((response) => {
+      console.log(response);
+    })
   }
 
   return (
 
     <div className="App">
       <button className="close" onClick={() => app.auth().signOut()}>Sign out</button>
-      <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button>
+      {/* <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button> */}
+      <button className="close" onClick={() => favoritesPage()}>Favorites</button>
       <header>
         <div className='hero'>
           <img id='GNI' src={GNI} alt="Girl's Night In Neon" />

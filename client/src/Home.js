@@ -79,19 +79,36 @@ function Home() {
 
   //this function will save to the favorites page
   const favorite = () => {
-    console.log("here's your favorite function! it's not built yet but we'll get there");
+    console.log("vv this is what your favorite button needs to push to the API vv");
+    console.log(state.selected);
+    console.log('vv this is what its actually pushing I think vv');
+    axios.post('/api/user/:id', 
+      state.selected
+    ).then((response) => {
+      console.log(response.config.data);
+    })
   }
 
   //this function will take you to the favorites page (Favorites.js)
   const favoritesPage = () => {
-    console.log('this will take you to the favorites page when it works');
+    console.log('this button will take you to the favorites page when it works but for now its printing the favorites array right below here');
+    // axios.get("/api/user/:id").then(({ data }) => {
+    //   console.log(data);
+    // });
+    axios.get('/api/user/:id/?results=all', 
+      state.selected
+    )
+    .then((response) => {
+      console.log(response);
+    })
   }
 
   return (
 
     <div className="App">
       <button className="close" onClick={() => app.auth().signOut()}>Sign out</button>
-      <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button>
+      {/* <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button> */}
+      <button className="close" onClick={() => favoritesPage()}>Favorites</button>
       <header>
         <div className='hero'>
           <img id='GNI' src={GNI} alt="Girl's Night In Neon" />

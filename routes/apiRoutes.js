@@ -47,4 +47,17 @@ router.get("/user/:id", (req,res) => {
     });
 })
 
+
+//4/24 post route for favorites attempt
+router.post("/user/:id", (req,res) => {
+  db.User.find({firebaseID:req.params.id})
+  .populate("movies")
+  .then(dbUser => {
+    res.json(dbUser);
+  })
+  .catch(err => {
+    res.json(err);
+  });
+})
+
 module.exports = router;

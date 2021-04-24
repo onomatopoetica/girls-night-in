@@ -48,8 +48,6 @@ router.get("/user/:id", (req,res) => {
     });
 })
 
-
-//4/24 post route for favorites attempt
 router.post("/movies/:id", (req,res) => {
   db.Movies.create({
     title: req.body.title,

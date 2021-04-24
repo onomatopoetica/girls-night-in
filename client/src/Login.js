@@ -3,6 +3,7 @@ import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
 import Loginto from './components/Loginpho.JPG';
+import "./index.css";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -46,7 +47,8 @@ const Login = ({ history }) => {
         <button type="submit" className="close">Let's Go Girl</button>
           </div>
       </form>
-
+        <br></br>
+        <p>Need to sign up? <a href="./signup">Sign up Here!</a></p>
         </div>
     </div>
   );

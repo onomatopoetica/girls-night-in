@@ -29,6 +29,7 @@ router.post("/user", (req,res) => {
         firebaseID: req.body.firebaseID
     })
     .then(dbUser => {
+        console.log(dbUser);
         res.json(dbUser);
       })
       .catch(err => {

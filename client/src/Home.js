@@ -8,7 +8,8 @@ import GNI from './components/GNI.png';
 import app from "./base";
 import "./index.css";
 import Favorites from "./components/Favorites";
-import {AuthContext} from './Auth.js'
+import {AuthContext} from './Auth.js';
+
 
 
 
@@ -18,7 +19,8 @@ function Home() {
   const [state, setState] = useState({
     searchInput: "",
     results: [],
-    selected: {}
+    selected: {},
+    redirect: null
   });
 
   const {currentUser} = useContext(AuthContext);
@@ -38,16 +40,12 @@ function Home() {
   }
 
   const getMovies = () => {
-    axios("/api/movies").then(({ data }) => {
-      console.log(data);
-      data.forEach(({ Title }) => {
-        axios(apiurl + "&s=" + Title).then(({ data }) => {
-          let results = data.Search;
-
-          setState(prevState => {
-            return { ...prevState, results: [...prevState.results, results[0]] }
-          })
-        });
+    axios("/api/user/" + currentUser.uid).then(({ data }) => {
+      console.log(data, 'getmovies');
+      data.movies?.forEach(({ title, poster }) => {
+        setState(prevState => {
+          return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster  } ] }
+        })
       })
     });
   }
@@ -82,17 +80,20 @@ function Home() {
 
   //this function will save to the favorites page
   const favorite = () => {
-    console.log("vv this is what your favorite button needs to push to the API vv");
-    console.log(state.selected);
-    console.log('vv this is what its actually pushing I think vv');
-    console.log(currentUser.uid);
+    // console.log("vv this is what your favorite button needs to push to the API vv");
+    // console.log(state.selected);
+    // console.log('vv this is what its actually pushing I think vv');
+    // console.log(currentUser.uid);
     axios.post('/api/movies/' + currentUser.uid, 
       {
         title: state.selected.Title,
-        poster: state.selected.Poster
+        poster: state.selected.Poster,
+        id: state.selected.id
       }
     ).then((response) => {
       console.log(response.data);
+      // return (<Redirect to exact path="/" component={Home} />);
+      return window.location.reload(false);
     })
   }
 

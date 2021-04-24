@@ -48,11 +48,9 @@ router.post("/user", (req, res) => {
 });
 
 router.get("/user/:id", (req, res) => {
-  console.log(req.params);
   db.User.findOne({ firebaseID: req.params.id })
     .populate('movies')
     .then((dbUser) => {
-      console.log(dbUser);
       res.json(dbUser);
     })
     .catch((err) => {
@@ -65,15 +63,17 @@ router.post("/movies/:id", (req, res) => {
   db.Movies.create({
     title: req.body.title,
     poster: req.body.poster,
+    imdbID: req.body.id
   })
     .then(({ _id }) => {
       db.User.findOne({ firebaseID: req.params.id })
+      .populate('movies')
       .then((user) => {
-        console.log(req.body, user);
         for (let i = 0; i < user.movies.length; i++) {
           const favorite = user.movies[i];
-          if (favorite === req.body.id) {
-            res.end();
+          console.log(favorite.imdbID, req.body.id)
+          if (favorite.imdbID === req.body.id) {
+            return res.end();
           }
         }
         db.User.findOneAndUpdate(

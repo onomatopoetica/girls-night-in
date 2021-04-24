@@ -81,14 +81,14 @@ function Home() {
   //this function will save to the favorites page
   const favorite = () => {
     // console.log("vv this is what your favorite button needs to push to the API vv");
-    // console.log(state.selected);
+    console.log(state.selected);
     // console.log('vv this is what its actually pushing I think vv');
     // console.log(currentUser.uid);
     axios.post('/api/movies/' + currentUser.uid, 
       {
         title: state.selected.Title,
         poster: state.selected.Poster,
-        id: state.selected.id
+        id: state.selected.imdbID
       }
     ).then((response) => {
       console.log(response.data);

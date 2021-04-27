@@ -12,13 +12,19 @@ function Popup({ selected, closePopup, favorite, favoriteDelete }) {
                     <p>{selected.Plot}</p>
                 </div>
 
-                <button className="popupBtn" onClick={closePopup}>Close</button>
-                <p></p>
-                <button className="popupBtn" onClick={favorite}>Favorite</button>
-                <p></p>
-                <button className="delete" onClick={favoriteDelete}>Delete</button>
-                <p></p>
-                <Qrcode selected={selected} />
+                <div className="buttonDiv">
+                    <button id="close" className="popupBtn" onClick={closePopup}>Close</button>
+
+                    <button id="favorite" className="popupBtn" onClick={favorite}>Favorite</button>
+
+                    <button id="delete" className="delete" onClick={favoriteDelete}>Delete</button>
+                </div>
+                <div>
+                    <Qrcode selected={selected} />
+                    <h6 align="center">
+                        Scan here to open movie page!
+                </h6>
+                </div>
             </div>
         </section>
     )

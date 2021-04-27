@@ -42,9 +42,9 @@ function Home() {
   const getMovies = () => {
     axios("/api/user/" + currentUser.uid).then(({ data }) => {
       console.log(data, 'getmovies');
-      data.movies?.forEach(({ title, poster }) => {
+      data.movies?.forEach(({ title, poster, imdbID }) => {
         setState(prevState => {
-          return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster }] }
+          return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster, imdbID: imdbID }] }
         })
       })
     });
@@ -111,6 +111,24 @@ function Home() {
       })
   }
 
+  const favoriteDelete = () => {
+    // console.log("vv this is what your favorite button needs to push to the API vv");
+    console.log(state.selected, "state selected");
+    // console.log('vv this is what its actually pushing I think vv');
+    // console.log(currentUser.uid);
+    axios.delete('/api/movies/' + currentUser.uid,
+      {
+        data: {
+          id: state.selected.imdbID
+        }
+      }
+    ).then((response) => {
+      console.log(response.data);
+      // return (<Redirect to exact path="/" component={Home} />);
+      return window.location.reload(false);
+    })
+  }
+
   return (
 
     <div className="App">
@@ -130,7 +148,7 @@ function Home() {
 
         <Results results={state.results} openPopup={openPopup} />
 
-        {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected} closePopup={closePopup} favorite={favorite} /> : false}
+        {(typeof state.selected.Title !== "undefined") ? <Popup selected={state.selected} closePopup={closePopup} favorite={favorite} favoriteDelete={favoriteDelete} /> : false}
 
       </main>
     </div>

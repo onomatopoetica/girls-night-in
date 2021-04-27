@@ -8,7 +8,7 @@ import GNI from './components/GNI.png';
 import app from "./base";
 import "./index.css";
 import Favorites from "./components/Favorites";
-import {AuthContext} from './Auth.js';
+import { AuthContext } from './Auth.js';
 
 
 
@@ -23,7 +23,7 @@ function Home() {
     redirect: null
   });
 
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   const apiurl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
@@ -44,7 +44,7 @@ function Home() {
       console.log(data, 'getmovies');
       data.movies?.forEach(({ title, poster }) => {
         setState(prevState => {
-          return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster  } ] }
+          return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster }] }
         })
       })
     });
@@ -84,7 +84,7 @@ function Home() {
     console.log(state.selected);
     // console.log('vv this is what its actually pushing I think vv');
     // console.log(currentUser.uid);
-    axios.post('/api/movies/' + currentUser.uid, 
+    axios.post('/api/movies/' + currentUser.uid,
       {
         title: state.selected.Title,
         poster: state.selected.Poster,
@@ -103,20 +103,22 @@ function Home() {
     // axios.get("/api/user/:id").then(({ data }) => {
     //   console.log(data);
     // });
-    axios.get('/api/user/:id/?results=all', 
+    axios.get('/api/user/:id/?results=all',
       state.selected
     )
-    .then((response) => {
-      console.log(response);
-    })
+      .then((response) => {
+        console.log(response);
+      })
   }
 
   return (
 
     <div className="App">
-      <button className="close" onClick={() => app.auth().signOut()}>Sign out</button>
+      {/* <button className="close" onClick={() => app.auth().signOut()}>Sign out</button> */}
+      <nav className="signOut" onClick={() => app.auth().signOut()}>Sign out</nav>
       {/* <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button> */}
-      <button className="close" onClick={() => favoritesPage()}>Favorites</button>
+      {/* <button className="close" onClick={() => favoritesPage()}>Favorites</button> */}
+      <nav className="favorites" onClick={() => favoritesPage()}>Favorites</nav>
       <header>
         <div className='hero'>
           <img id='GNI' src={GNI} alt="Girl's Night In Neon" />

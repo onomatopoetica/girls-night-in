@@ -206,6 +206,31 @@ section {
 	margin-top: 20px;
 }
 
+#close, #favorite, #delete {
+	margin: 2px;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 400;
+	background: palevioletred;
+	color: #FFF;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: 0.4s ease-out;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.buttonDiv {
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
 .signOut, .favorites {
 	font-family: 'montserrat', sans-serif;	
     display: inline-block;
@@ -223,7 +248,7 @@ section {
     color: palevioletred;
 }
 
-.popupBtn {
+.popupBtn, .delete {
 	width: 100px;
 	margin: 2px;
 	display: block;
@@ -238,6 +263,14 @@ section {
 	appearance: none;
 	cursor: pointer;
 	transition: 0.4s ease-out;
+	margin-top: 20px;
+}
+
+.delete {
+	margin-bottom: 20px;
+}
+
+#canvas {
 	margin-top: 20px;
 }
 

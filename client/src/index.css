@@ -223,7 +223,7 @@ section {
     color: palevioletred;
 }
 
-.popupBtn {
+.popupBtn, .delete {
 	width: 100px;
 	margin: 2px;
 	display: block;
@@ -239,6 +239,10 @@ section {
 	cursor: pointer;
 	transition: 0.4s ease-out;
 	margin-top: 20px;
+}
+
+.delete {
+	margin-bottom: 20px;
 }
 
 .loginBtn {

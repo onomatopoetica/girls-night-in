@@ -4,10 +4,10 @@ import axios from 'axios';
 import Search from './components/Search';
 import Results from './components/Results';
 import Popup from './components/Popup';
-import GNI from './components/GNI.png';
+import GirlsNightIn from './components/GirlsNightIn.png';
+import favorites from './components/favorites.png';
 import app from "./base";
 import "./index.css";
-import Favorites from "./components/Favorites";
 import { AuthContext } from './Auth.js';
 
 
@@ -80,10 +80,9 @@ function Home() {
 
   //this function will save to the favorites page
   const favorite = () => {
-    // console.log("vv this is what your favorite button needs to push to the API vv");
+
     console.log(state.selected);
-    // console.log('vv this is what its actually pushing I think vv');
-    // console.log(currentUser.uid);
+
     axios.post('/api/movies/' + currentUser.uid,
       {
         title: state.selected.Title,
@@ -92,30 +91,15 @@ function Home() {
       }
     ).then((response) => {
       console.log(response.data);
-      // return (<Redirect to exact path="/" component={Home} />);
+
       return window.location.reload(false);
     })
   }
 
-  //this function will take you to the favorites page (Favorites.js)
-  const favoritesPage = () => {
-    console.log('this button will take you to the favorites page when it works but for now its printing the favorites array right below here');
-    // axios.get("/api/user/:id").then(({ data }) => {
-    //   console.log(data);
-    // });
-    axios.get('/api/user/:id/?results=all',
-      state.selected
-    )
-      .then((response) => {
-        console.log(response);
-      })
-  }
-
   const favoriteDelete = () => {
-    // console.log("vv this is what your favorite button needs to push to the API vv");
+
     console.log(state.selected, "state selected");
-    // console.log('vv this is what its actually pushing I think vv');
-    // console.log(currentUser.uid);
+
     axios.delete('/api/movies/' + currentUser.uid,
       {
         data: {
@@ -124,7 +108,7 @@ function Home() {
       }
     ).then((response) => {
       console.log(response.data);
-      // return (<Redirect to exact path="/" component={Home} />);
+
       return window.location.reload(false);
     })
   }
@@ -132,19 +116,21 @@ function Home() {
   return (
 
     <div className="App">
-      {/* <button className="close" onClick={() => app.auth().signOut()}>Sign out</button> */}
+
       <nav className="signOut" onClick={() => app.auth().signOut()}>Sign out</nav>
-      {/* <button className="close" onClick={() => app.auth().favoritesPage()}>Favorites</button> */}
-      {/* <button className="close" onClick={() => favoritesPage()}>Favorites</button> */}
-      <nav className="favorites" onClick={() => favoritesPage()}>Favorites</nav>
+
       <header>
         <div className='hero'>
-          <img id='GNI' src={GNI} alt="Girl's Night In Neon" />
+          <img id='GNI' src={GirlsNightIn} alt="Girls' Night In Neon" />
         </div>
         <h1>Search For A Movie!</h1>
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
+
+        <div className='hero'>
+          <img id='favorites' src={favorites} alt="Favorites In Neon" />
+        </div>
 
         <Results results={state.results} openPopup={openPopup} />
 

@@ -333,6 +333,24 @@ p {
 		font-family: 'montserrat', sans-serif;	
 		font-size: 14px;
 	}
+
+	.buttonDiv {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero {
+		align-self: center;
+	}
+
+	#favorites {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
 }
 
 @media only screen and (max-width: 750px) {

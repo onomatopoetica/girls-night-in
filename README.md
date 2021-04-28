@@ -32,6 +32,7 @@ For a personalized experience, the user is required to sign up for access to the
 1. [Project Status](#Project-Status)
 1. [License](#License)
 <br> 
+
 ## Project Team <br>
 
 #### [Onomatopoetica](https://github.com/onomatopoetica) <br>
@@ -82,6 +83,7 @@ Because this application cannot be deployed on GitHub, a walkthrough video demon
 
 <img src="./MovieSearch.PNG" alt="app screenshot" width="900" height="auto"> <br>
 <img src="./PopOut.PNG" alt="app screenshot" width="900" height="auto">
+
 ## Getting Started
     
 #### Technologies used in this project include:

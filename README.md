@@ -110,11 +110,11 @@ See About The Project or demo video above for more information on how it works.
 View Project Links above for the link to the deployed app on Heroku.
 ```
 #### Tests
-```
+
 After cloning the repo:
 
 Ensure you have [Node.js](https://nodejs.org/en/) installed on your machine.
-
+```
 All NPM packages required for this application are already listed as dependencies in the package.json files. Run the command 'npm i' command in your terminal. Remember to 'npm i' at the root directory level to install root level dependencies and then cd into the client and run 'npm i' for client level dependencies.
 
 The application will be invoked by entering 'npm start' in the command line. 

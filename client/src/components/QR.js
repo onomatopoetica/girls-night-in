@@ -28,7 +28,6 @@ export default class Qrcode extends React.Component {
     this.generateQR();
     return (
       <div align="center">
-        {/* <button className="close" onClick={this.generateQR}>Share</button> */}
         <p></p>
         <canvas id="canvas" />
 

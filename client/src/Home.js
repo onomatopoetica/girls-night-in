@@ -4,7 +4,7 @@ import axios from 'axios';
 import Search from './components/Search';
 import Results from './components/Results';
 import Popup from './components/Popup';
-import GirlsNightIn from './components/GirlsNightIn.png';
+import GirlsHome from './components/GirlsHome.PNG';
 import favorites from './components/favorites.png';
 import app from "./base";
 import "./index.css";
@@ -117,13 +117,13 @@ function Home() {
 
     <div className="App">
 
-      <nav className="signOut" onClick={() => app.auth().signOut()}>Sign out</nav>
+      <nav className="signOut" onClick={() => app.auth().signOut()}>Sign Out</nav>
 
       <header>
         <div className='hero'>
-          <img id='GNI' src={GirlsNightIn} alt="Girls' Night In Neon" />
+          <img id='GNI' src={GirlsHome} alt="Girls' Night In Neon" />
         </div>
-        <h1>Search For A Movie!</h1>
+        <p align="center" className="searchMovie">Search For A Movie!</p>
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />

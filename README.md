@@ -52,9 +52,9 @@ When the app launches, the user sees a `Login` page where they can sign into the
 * When the user logs into the app, they are taken to the main `Search For A Movie` page where they can search for a movie and view their saved favorite movies. On this main page the user can:
     * Search for movies by title or partial title,
     * View all saved favorite movies,
-    * Select a movie poster for more information on a specific movie, or 
-    * Have an option to view the movie `QR Code`, `Favorite` or `Delete` a movie,
-    * Sign out of the app
+    * Select a movie poster for more information on a specific movie. 
+    * When the user clicks a movie poster, they are directed to a popup where they can `Favorite` or `Delete` a movie, or scan the `QR Code` (see more details below).
+    * A user can also sign out of the app from this page.
 
 * When a user clicks on a movie poster on the main page, they are taken to a popup page with options available for actions specific to the selected movie. The user can:
     * View more information about the movie including:

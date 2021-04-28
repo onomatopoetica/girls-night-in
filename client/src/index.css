@@ -21,6 +21,11 @@ header h1, h1 {
 	text-align: center;
 }
 
+.searchMovie {
+	font-size: 48px;
+	font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
 main {
 	width: 100%;
 	max-width: 960px;
@@ -32,6 +37,16 @@ section {
 }
 
 .hero {
+	align-self: center;
+	text-align: center;
+}
+
+.GNIhero {
+	align-self: center;
+	text-align: center;
+}
+
+.loginHero {
 	align-self: center;
 	text-align: center;
 }
@@ -337,6 +352,10 @@ p {
 		justify-content: center;
 	}
 
+	.searchMovie {
+		font-size: 22px;
+	}
+
 	.signOut, .favorites {
 		font-family: 'montserrat', sans-serif;	
 		font-size: 14px;
@@ -350,6 +369,19 @@ p {
 
 	.hero {
 		align-self: center;
+	}
+
+	#Loginto, #SignPhoto {
+		align-self: center;
+		max-width: 100%;
+	}
+
+	form {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
 	}
 
 	#favorites {

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./base";
-import SignPhoto from './components/Signpho.JPG';
+import GNISignUp from './components/GNISignUp.PNG';
 import "./index.css";
 
 const SignUp = ({ history }) => {
@@ -28,14 +28,11 @@ const SignUp = ({ history }) => {
   return (
     <div>
       <div className='hero'>
-        <img id='SignPhoto' src={SignPhoto} alt="SignPhoto" />
+        <img id='SignPhoto' src={GNISignUp} alt="SignPhoto" />
       </div>
 
       <div className="signUpPage">
         <form onSubmit={handleSignUp}>
-          {/* <label>
-            <input name="name" className="loginBtn" type="text" placeholder="Name" />
-          </label> */}
           <label>
             <input name="email" className="loginBtn" type="email" placeholder="Email" />
           </label>
@@ -47,7 +44,7 @@ const SignUp = ({ history }) => {
             <button type="submit" className="close">Sign Up</button>
           </div>
           <br></br>
-          <p>Already signed up? <a className="signIn" href="./login">Login Here!</a></p>
+          <p align="center">Already signed up? <a className="signIn" href="./login">Login Here!</a></p>
         </form>
       </div>
 

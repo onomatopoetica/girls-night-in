@@ -26,7 +26,6 @@ For a personalized experience, the user is required to sign up for access to the
 
 #### <a href="https://github.com/MarleeMcinelly"><img src="https://avatars.githubusercontent.com/u/73317675?v=4" width="50px;" alt="marlee"/> [MarleeMcinelly](https://github.com/marleemcinelly)
 #### <a href="https://github.com/RebeccaChiquete"><img src="https://avatars.githubusercontent.com/u/73192698?v=4" width="50px;" alt="rebecca"/> [RebeccaChiquete](https://github.com/rebeccachiquete) <br>
-<br>
     
 ## Table of Contents
 1. [Project Team](#Project-Team)

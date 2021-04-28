@@ -117,7 +117,7 @@ function Home() {
 
     <div className="App">
 
-      <nav className="signOut" onClick={() => app.auth().signOut()}>Sign out</nav>
+      <nav className="signOut" onClick={() => app.auth().signOut()}>Sign Out</nav>
 
       <header>
         <div className='hero'>

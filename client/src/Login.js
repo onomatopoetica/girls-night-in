@@ -30,26 +30,26 @@ const Login = ({ history }) => {
 
   return (
     <div>
-       <div className='hero'>
-          <img id='Loginto' src={Loginto} alt="Login" />
-        </div>
-        
-        <div className="loginPage">
+      <div className='hero'>
+        <img id='Loginto' src={Loginto} alt="Login" />
+      </div>
+
+      <div className="loginPage">
         <form onSubmit={handleLogin}>
-        <label>
-          <input name="email" className="loginBtn" type="email" placeholder="Email" />
-        </label>
-        <label>
-          <input name="password" className="loginBtn" type="password" placeholder="Password" />
-        </label>
-        <br></br>
-        <div className="centerBtn">
-        <button type="submit" className="close">Let's Go Girl</button>
+          <label>
+            <input name="email" className="loginBtn" type="email" placeholder="Email" />
+          </label>
+          <label>
+            <input name="password" className="loginBtn" type="password" placeholder="Password" />
+          </label>
+          <br></br>
+          <div className="centerBtn">
+            <button type="submit" className="close">Let's Go Girl</button>
           </div>
-      </form>
+        </form>
         <br></br>
-        <p>Need to sign up? <a href="./signup">Sign up Here!</a></p>
-        </div>
+        <p>Need to sign up? <a className="signUp" href="./signup">Sign up Here!</a></p>
+      </div>
     </div>
   );
 };

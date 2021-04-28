@@ -17,6 +17,16 @@ For a personalized experience, the user is required to sign up for access to the
 [Repo Link](https://github.com/onomatopoetica/girls-night-in) <br>
 **NOTE:** Since this application cannot be deployed on GitHub, the deployed app can be found on [Heroku](https://girls-night-in.herokuapp.com/). Please see the **Getting Started** section for more information regarding installation, usage, contribution guidelines, tests and where to go for questions.
 <br>
+
+## Project Team <br>
+
+#### <a href="https://github.com/onomatopoetica"><img src="https://avatars.githubusercontent.com/u/72478102?v=4" width="50px;" alt="jen"/> [Onomatopoetica](https://github.com/onomatopoetica)
+ 
+#### <a href="https://github.com/Kammielatay"><img src="https://avatars.githubusercontent.com/u/69655435?v=4" width="50px;" alt="kammie"/> [Kammielatay](https://github.com/Kammielatay) <br>
+
+#### <a href="https://github.com/MarleeMcinelly"><img src="https://avatars.githubusercontent.com/u/73317675?v=4" width="50px;" alt="marlee"/> [MarleeMcinelly](https://github.com/marleemcinelly)
+#### <a href="https://github.com/RebeccaChiquete"><img src="https://avatars.githubusercontent.com/u/73192698?v=4" width="50px;" alt="rebecca"/> [RebeccaChiquete](https://github.com/rebeccachiquete) <br>
+<br>
     
 ## Table of Contents
 1. [Project Team](#Project-Team)
@@ -32,14 +42,6 @@ For a personalized experience, the user is required to sign up for access to the
 1. [Project Status](#Project-Status)
 1. [License](#License)
 <br> 
-
-## Project Team <br>
-
-#### [Onomatopoetica](https://github.com/onomatopoetica) <br>
-#### [Kammielatay](https://github.com/Kammielatay) <br>
-#### [MarleeMcinelly](https://github.com/marleemcinelly)
-#### [RebeccaChiquete](https://github.com/rebeccachiquete) <br>
-<br>
 
 ## About The Project
 

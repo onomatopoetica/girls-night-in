@@ -29,13 +29,28 @@ function Home() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
-        let results = data.Search;
+      if (state.searchInput.length >= 2) {
+        axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
+          let results = data.Search;
+          if (results) {
+            setState(prevState => {
+              return { ...prevState, results: results }
+            })
+          }
+          else {
+            let userPreference;
 
-        setState(prevState => {
-          return { ...prevState, results: results }
-        })
-      });
+            if (alert("Please enter four or more letters") == true) {
+              userPreference = "OK!";
+            } else {
+              userPreference = "No Dice!";
+            }
+            document.getElementById("msg").innerHTML = userPreference;
+          }
+        });
+      } else {
+        console.log("no dice")
+      }
     }
   }
 
@@ -127,7 +142,7 @@ function Home() {
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
-
+        <div id="msg"></div>
         <div className='hero'>
           <img id='favorites' src={favorites} alt="Favorites In Neon" />
         </div>

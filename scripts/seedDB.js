@@ -16,31 +16,21 @@ mongoose.connect(
 
 const moviesSeed = [
     {
-        // result.title
         Title: "Mean Girls",
-        // result.poster
         Poster: "",
-        // date: new Date(Date.now())
     },
     {
-        // result.title
         Title: "Frankenstein",
-        // result.poster
         Poster: "",
-        // date: new Date(Date.now())
     },
     {
-        // result.title
         Title: "The Great Gatsby",
-        // result.poster
         Poster: "",
-        // date: new Date(Date.now())
     },
 ];
 
 db.Movies.collection.insertMany(moviesSeed)
     .then(data => {
-        console.log(data.result.n + " records inserted!");
         process.exit(0);
     })
     .catch(err => {

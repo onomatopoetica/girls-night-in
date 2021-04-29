@@ -12,9 +12,6 @@ import { AuthContext } from './Auth.js';
 
 
 
-
-console.log(process.env.REACT_APP_API_KEY);
-
 function Home() {
   const [state, setState] = useState({
     searchInput: "",
@@ -49,14 +46,13 @@ function Home() {
           }
         });
       } else {
-        console.log("no dice")
+        console.log("err")
       }
     }
   }
 
   const getMovies = () => {
     axios("/api/user/" + currentUser.uid).then(({ data }) => {
-      console.log(data, 'getmovies');
       data.movies?.forEach(({ title, poster, imdbID }) => {
         setState(prevState => {
           return { ...prevState, results: [...prevState.results, { Title: title, Poster: poster, imdbID: imdbID }] }
@@ -77,8 +73,6 @@ function Home() {
     axios(apiurl + "&i=" + id).then(({ data }) => {
       let result = data;
 
-      console.log(result);
-
       setState(prevState => {
         return { ...prevState, selected: result }
       });
@@ -96,8 +90,6 @@ function Home() {
   //this function will save to the favorites page
   const favorite = () => {
 
-    console.log(state.selected);
-
     axios.post('/api/movies/' + currentUser.uid,
       {
         title: state.selected.Title,
@@ -105,15 +97,12 @@ function Home() {
         id: state.selected.imdbID
       }
     ).then((response) => {
-      console.log(response.data);
 
       return window.location.reload(false);
     })
   }
 
   const favoriteDelete = () => {
-
-    console.log(state.selected, "state selected");
 
     axios.delete('/api/movies/' + currentUser.uid,
       {
@@ -122,7 +111,6 @@ function Home() {
         }
       }
     ).then((response) => {
-      console.log(response.data);
 
       return window.location.reload(false);
     })

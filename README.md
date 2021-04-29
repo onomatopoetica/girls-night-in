@@ -7,7 +7,7 @@ Forgot the movie your mom’s friend’s sister suggested last Thursday but you 
 
 Want to share a new found movie with your friends? We got you covered with a custom QR Code!
 
-Secured by Firebase authentication, the Girls' Night In movie app uses a Node and Express Web Server backed by a MongoDB database and Mongoose ODM structured within an MVC Paradigm. With `GET, POST and DELETE` routes, the user can retrieve, add and delete movie data. 
+Secured by `Firebase` authentication, the Girls' Night In movie app uses a Node and Express Web Server backed by a MongoDB database and Mongoose ODM structured within an MVC Paradigm. With `GET, POST and DELETE` routes, the user can retrieve, add and delete movie data. 
 
 Girls' Night In generates unique QR codes for each movie using `QRCode.React NPM` allowing the user to view more information about a movie on the IMDB website and easily share favorite movies with friends. 
 

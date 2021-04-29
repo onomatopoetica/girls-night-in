@@ -38,7 +38,14 @@ function Home() {
             })
           }
           else {
-            alert("no results");
+            let userPreference;
+
+            if (alert("Please enter four or more letters") == true) {
+              userPreference = "OK!";
+            } else {
+              userPreference = "No Dice!";
+            }
+            document.getElementById("msg").innerHTML = userPreference;
           }
         });
       } else {
@@ -46,26 +53,6 @@ function Home() {
       }
     }
   }
-
-  // const search = (e) => {
-  //   if (e.key === "Enter" && e.length <= 4) {
-
-  //     axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
-  //       let results = data.Search;
-  //       setState(prevState => {
-  //         return { ...prevState, results: results }
-  //       })
-  //     });
-  //   } else {
-  //     console.log("it's working");
-  //   };
-
-  //   setState(prevState => {
-  //   return { ...prevState, results: results }
-  // })
-  // });
-  // }
-  // }
 
   const getMovies = () => {
     axios("/api/user/" + currentUser.uid).then(({ data }) => {
@@ -155,7 +142,7 @@ function Home() {
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
-
+        <div id="msg"></div>
         <div className='hero'>
           <img id='favorites' src={favorites} alt="Favorites In Neon" />
         </div>

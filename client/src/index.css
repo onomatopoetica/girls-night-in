@@ -16,9 +16,14 @@ header {
 header h1, h1 {
 	color: #FFF;
 	font-size: 48px;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 	font-weight: 500;
 	text-align: center;
+}
+
+.searchMovie {
+	font-size: 48px;
+	font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 }
 
 main {
@@ -32,6 +37,16 @@ section {
 }
 
 .hero {
+	align-self: center;
+	text-align: center;
+}
+
+.GNIhero {
+	align-self: center;
+	text-align: center;
+}
+
+.loginHero {
 	align-self: center;
 	text-align: center;
 }
@@ -71,6 +86,15 @@ section {
   	align-items: center;
 }
 
+.signUp, .signIn {
+	color: rgb(238, 183, 225);
+	text-decoration: none;	
+}
+
+.signUp:hover, .signIn:hover {
+	color: palevioletred;
+}
+
 #GNI {
 	max-width: 100%;
 	background-image: 
@@ -102,6 +126,7 @@ section {
 .loginBtn:focus {
 	box-shadow: 0px 0px 10px 8px rgb(238, 183, 225);
 }
+
 .results {
 	display: flex;
 	flex-wrap: wrap;
@@ -120,7 +145,6 @@ section {
 .results .result img {
 	display: block;
 	width: 100%;
-
 }
 
 .result:hover {
@@ -206,7 +230,46 @@ section {
 	margin-top: 20px;
 }
 
-.popupBtn {
+#close, #favorite, #delete {
+	margin: 2px;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: 400;
+	background: palevioletred;
+	color: #FFF;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+	transition: 0.4s ease-out;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.buttonDiv {
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.signOut {
+	font-family: 'montserrat', sans-serif;	
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000;
+    color: rgb(238, 183, 225);
+}
+
+.signOut:hover {
+    color: palevioletred;
+	cursor: pointer;
+}
+
+.popupBtn, .delete {
 	width: 100px;
 	margin: 2px;
 	display: block;
@@ -221,6 +284,14 @@ section {
 	appearance: none;
 	cursor: pointer;
 	transition: 0.4s ease-out;
+	margin-top: 20px;
+}
+
+.delete {
+	margin-bottom: 20px;
+}
+
+#canvas {
 	margin-top: 20px;
 }
 
@@ -270,11 +341,55 @@ section {
 	background: pink;
 }
 
+p {
+	color: white;
+}
+
 @media only screen and (max-width: 500px) {
 	section.results {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.searchMovie {
+		font-size: 22px;
+	}
+
+	.signOut, .favorites {
+		font-family: 'montserrat', sans-serif;	
+		font-size: 14px;
+	}
+
+	.buttonDiv {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.hero {
+		align-self: center;
+	}
+
+	#Loginto, #SignPhoto {
+		align-self: center;
+		max-width: 100%;
+	}
+
+	form {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	#favorites {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
 	}
 }
 

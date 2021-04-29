@@ -29,15 +29,43 @@ function Home() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
-        let results = data.Search;
-
-        setState(prevState => {
-          return { ...prevState, results: results }
-        })
-      });
+      if (state.searchInput.length >= 2) {
+        axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
+          let results = data.Search;
+          if (results) {
+            setState(prevState => {
+              return { ...prevState, results: results }
+            })
+          }
+          else {
+            alert("no results");
+          }
+        });
+      } else {
+        console.log("no dice")
+      }
     }
   }
+
+  // const search = (e) => {
+  //   if (e.key === "Enter" && e.length <= 4) {
+
+  //     axios.get(apiurl + "&s=" + state.searchInput).then(({ data }) => {
+  //       let results = data.Search;
+  //       setState(prevState => {
+  //         return { ...prevState, results: results }
+  //       })
+  //     });
+  //   } else {
+  //     console.log("it's working");
+  //   };
+
+  //   setState(prevState => {
+  //   return { ...prevState, results: results }
+  // })
+  // });
+  // }
+  // }
 
   const getMovies = () => {
     axios("/api/user/" + currentUser.uid).then(({ data }) => {

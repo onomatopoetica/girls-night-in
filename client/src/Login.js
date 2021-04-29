@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "./base.js";
 import { AuthContext } from "./Auth.js";
-import GNILogin from './components/GNILogin.PNG';
+import girlsLogin from './components/girlsLogin.PNG';
 import "./index.css";
 
 const Login = ({ history }) => {
@@ -32,7 +32,7 @@ const Login = ({ history }) => {
     <div>
 
       <div className='hero'>
-        <img align="center" id='Loginto' src={GNILogin} alt="Login" />
+        <img align="center" id='Loginto' src={girlsLogin} alt="Login" />
       </div>
 
       <div className="loginPage">

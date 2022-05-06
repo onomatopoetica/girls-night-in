@@ -21,7 +21,7 @@ function Home() {
   });
 
   const { currentUser } = useContext(AuthContext);
-  //Fixed error 401 - renewed api key on ombd
+  
   const apiurl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
   const search = (e) => {

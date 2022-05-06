@@ -52,17 +52,12 @@ section {
 }
 
 .loginPage {
-	position: fixed;
+	position: relative;
 	background: black;
+	top: 0px;
 	border-radius: 6px;
 	margin: 20px auto 0;
 	width: 298px;
-	margin: 0;
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	-ms-transform: translate(-50%, -50%);
-  	transform: translate(-50%, -50%);
 	display: block;
   	justify-content: center;
   	align-items: center;
@@ -70,9 +65,8 @@ section {
 
 form {
 	position: relative;
-	/* align-self: center;
-	margin-top: 350px; */
-	background-color: red;
+	align-self: center;
+	top: 0px;
 	height:100%;
 	width: 100%;
 	margin: 0;
@@ -86,12 +80,6 @@ form {
 	height: 257px;
 	margin: 20px auto 0;
 	width: 298px;
-	margin: 0;
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	-ms-transform: translate(-50%, -50%);
-  	transform: translate(-50%, -50%);
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -307,23 +295,9 @@ form {
 }
 
 .loginBtn {
-	display: block;
-	padding: 10px 20px;
-	font-size: 18px;
-	font-weight: 400;
-	background: palevioletred;
-	color: #FFF;
-	border-radius: 8px;
-	border: none;
-	outline: none;
-	appearance: none;
-	cursor: pointer;
-	transition: 0.4s ease-out;
-}
-
-.loginBtn {
 	display: inline-block;
 	padding: 10px 20px;
+	align-items: center;
 	font-size: 18px;
 	font-weight: 400;
 	background: white;
@@ -335,7 +309,7 @@ form {
 	cursor: pointer;
 	transition: 0.4s ease-out;
 	margin-top: 20px;
-	margin-left: 15px;
+	margin-left: 34px;
 }
 
 .loginBtn:focus {

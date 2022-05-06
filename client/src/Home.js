@@ -22,7 +22,7 @@ function Home() {
 
   const { currentUser } = useContext(AuthContext);
 
-  const apiurl = `https://www.omdbapi.com/?apikey=28764646`;
+  const apiurl = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
   const search = (e) => {
     if (e.key === "Enter") {

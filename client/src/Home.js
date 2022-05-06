@@ -37,7 +37,7 @@ function Home() {
           else {
             let userPreference;
 
-            if (alert("Please enter four or more letters") == true) {
+            if (alert("Please enter four or more letters") === true) {
               userPreference = "OK!";
             } else {
               userPreference = "No Dice!";

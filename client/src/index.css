@@ -52,9 +52,9 @@ section {
 }
 
 .loginPage {
+	position: fixed;
 	background: black;
 	border-radius: 6px;
-	height: 257px;
 	margin: 20px auto 0;
 	width: 298px;
 	margin: 0;
@@ -66,8 +66,19 @@ section {
 	display: block;
   	justify-content: center;
   	align-items: center;
-	
 }
+
+form {
+	position: relative;
+	/* align-self: center;
+	margin-top: 350px; */
+	background-color: red;
+	height:100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}	
 
 .signUpPage {
 	background: black;
@@ -374,14 +385,6 @@ p {
 	#Loginto, #SignPhoto {
 		align-self: center;
 		max-width: 100%;
-	}
-
-	form {
-		height:100%;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		border: 0;
 	}
 
 	#favorites {
